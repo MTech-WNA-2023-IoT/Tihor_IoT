@@ -13,6 +13,7 @@ cur=conn.cursor()
 data={'topic':'sensor/temp','data':10.2}
 #Execute the SQL to write data to the database
 cur.execute("INSERT INTO MQTTdata(topic , data)VALUES(%(topic)s,%(data)s);",data)
+print("Data added")
 #Close the cursor
 cur.close()
 #Commit the data to the database
