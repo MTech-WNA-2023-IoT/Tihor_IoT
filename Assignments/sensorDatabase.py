@@ -1,4 +1,5 @@
 import paho.mqtt.client as paho
+from myDatabase import storeData
 #pip3 install paho-mqtt
 global mqttclient;
 global broker;
@@ -16,6 +17,9 @@ def test(client, userdata, message):
   print("client:"+ str(client))
   print("userdata:"+ str(userdata))
   print("message:"+ str(message.payload))
+  mesg = str(message.payload)
+  storeData(mesg)
+
 
 def _on_message(client, userdata, msg):
 # 	print("Received: Topic: %s Body: %s", msg.topic, msg.payload)
