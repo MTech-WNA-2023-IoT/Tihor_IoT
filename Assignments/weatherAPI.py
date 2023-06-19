@@ -7,7 +7,7 @@ def mysql_push(data):
   conn = pymysql.connect(database="senorData",user="user",password="pass123",host="localhost")
   cur = conn.cursor()
   
-  cur.execute("INSERT INTO apiData(name, region, country, temperature_c, temperature_f, is_day, condition, wind_speed_mph, wind_speed_kph, humidity) VALUES (%(name)s, %(region)s, %(country)s, %(temperature_c)s, %(temperature_f)s, %(is_day)s, %(condition)s, %(wind_speed_mph)s, %(wind_speed_kph)s, %(humidity)s);", data)
+  cur.execute("INSERT INTO apiData(name, region, country, temperature_c, temperature_f, is_day, Condition, wind_speed_mph, wind_speed_kph, humidity) VALUES (%(name)s, %(region)s, %(country)s, %(temperature_c)s, %(temperature_f)s, %(is_day)s, %(condition)s, %(wind_speed_mph)s, %(wind_speed_kph)s, %(humidity)s);", data)
   conn.commit()
   
   print("Data is stored tot the database")
