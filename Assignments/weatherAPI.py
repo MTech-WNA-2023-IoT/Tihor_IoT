@@ -9,9 +9,9 @@ def mysql_push(data):
   
   cur.execute("INSERT INTO apiData(name, region, country, temperature_c, temperature_f, is_day, w_Condition, wind_speed_mph, wind_speed_kph, humidity) VALUES (%(name)s, %(region)s, %(country)s, %(temperature_c)s, %(temperature_f)s, %(is_day)s, %(w_Condition)s, %(wind_speed_mph)s, %(wind_speed_kph)s, %(humidity)s);", data)
   conn.commit()
-  
-  print("Data is stored tot the database")
-  print('----------------------------------------------------')
+  print('------------------------------------')
+  print("Data is stored to the database")
+  print('------------------------------------')
   cur.close()
   conn.close() 
 
@@ -22,8 +22,10 @@ def getdata():
   json_api=json.loads(api)
 
   print("----Raw Data----")
+  print('--------------------------------------------------------------')
   print(json_api)
-
+  print('--------------------------------------------------------------')
+  
   print("----Parsed----")
   location = json_api['location']
   current = json_api['current']
