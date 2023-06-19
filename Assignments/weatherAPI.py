@@ -1,5 +1,6 @@
 import json
 from urllib.request import urlopen
+import pymysql
 #Create user account and obtain API key from https://www.weatherapi.com
 
 def mysql_push(data):
