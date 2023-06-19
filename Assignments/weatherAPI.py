@@ -53,7 +53,11 @@ def getdata():
       'wind_speed_kph': wind_speed_kph,
       'humidity': humidity
       }
-  
+  json_string = json.dumps(data, indent=4)
+  print('--------------------------------------------------------------')
+  print(json_string)
+  print('--------------------------------------------------------------')
+
   return data
 
 print('----------------------------------------------------')
