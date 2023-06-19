@@ -46,7 +46,7 @@ def getdata():
       'temperature_c': temperature_c,
       'temperature_f': temperature_f,
       'is_day': is_day,
-      'condition': condition,
+      'Condition': condition,
       'wind_speed_mph': wind_speed_mph,
       'wind_speed_kph': wind_speed_kph,
       'humidity': humidity
