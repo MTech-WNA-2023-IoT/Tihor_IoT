@@ -1,7 +1,10 @@
 import json
+import time
 from urllib.request import urlopen
 import pymysql
 #Create user account and obtain API key from https://www.weatherapi.com
+
+timer = lambda seconds: [time.sleep(1) for _ in range(seconds)]
 
 def mysql_push(data):
   conn = pymysql.connect(database="senorData",user="user",password="pass123",host="localhost")
@@ -65,7 +68,8 @@ print('Get weather update from API press 1')
 print('----------------------------------------------------')
 
 while 1:
-  res = int(input())
+  timer(5)
+  res=1
   if res==1:
     dictionary = getdata()
     mysql_push(dictionary)
