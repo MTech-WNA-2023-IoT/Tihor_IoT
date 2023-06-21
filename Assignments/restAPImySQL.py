@@ -20,7 +20,7 @@ mysql = MySQL()
 #Configure MySQL
 app.config['MYSQL_DATABASE_USER'] = 'user'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'pass123'
-app.config['MYSQL_DATABASE_DB'] = 'sensorData'
+app.config['MYSQL_DATABASE_DB'] = 'senorData'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 #initialise MySQL (connect to mysql)
