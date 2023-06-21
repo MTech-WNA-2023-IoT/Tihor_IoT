@@ -8,6 +8,8 @@ mqttTopic = "sensor/accelerometer"
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT broker")
     client.subscribe(mqttTopic)
+    print("Listening to data .....---.....")
+    print("------------------------------------------------")
 
 def on_message(client, userdata, msg):
     print("Received message: " + str(msg.payload))
