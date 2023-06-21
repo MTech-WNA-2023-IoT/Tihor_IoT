@@ -18,9 +18,9 @@ app=Flask(__name__)
 mysql = MySQL()
 
 #Configure MySQL
-app.config['MYSQL_DATABASE_USER'] = 'your-mysql-username'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'your-mysql-password'
-app.config['MYSQL_DATABASE_DB'] = 'your-mysql-database'
+app.config['MYSQL_DATABASE_USER'] = 'user'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'pass123'
+app.config['MYSQL_DATABASE_DB'] = 'sensorData'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 #initialise MySQL (connect to mysql)
@@ -44,7 +44,7 @@ def recentlocation():
 #Create a MySQL Cursor	
 	cur = mysql.connect().cursor()
 #Execute the SQL
-	cur.execute('select * from <your table> ORDER BY id DESC LIMIT 5 ')
+	cur.execute('select * from apiDats ORDER BY ID DESC LIMIT 5 ')
 #Receive the SQL Response in a variable
 	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
 #Return the respose to the URL
