@@ -1,9 +1,9 @@
 import paho.mqtt.client as mqtt
 
 # MQTT broker configuration
-mqttBroker = "35.200.145.127"
+mqttBroker = "35.244.35.92"
 mqttPort = 1883
-mqttTopic = "sensor/accelerometer"
+mqttTopic = "sensor/data"
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT broker")
