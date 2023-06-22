@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 
 # MQTT broker configuration
 # mqttBroker = "35.200.145.127"
-mqttBroker = "192.168.125"
+mqttBroker = "192.168.1.125"
 mqttPort = 1883
 mqttTopic = "sensor/data"
 
