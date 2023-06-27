@@ -8,10 +8,10 @@ mqttPort = 1883
 mqttTopic = "sensor/data"
 
 # MySQL database configuration
-mysqlHost = "your_mysql_host"
-mysqlUser = "your_mysql_username"
-mysqlPassword = "your_mysql_password"
-mysqlDatabase = "your_mysql_database"
+mysqlHost = "localhost"
+mysqlUser = "user"
+mysqlPassword = "pass123"
+mysqlDatabase = "sensorData"
 
 # Connect to the MySQL database
 db = mysql.connector.connect(
@@ -48,7 +48,7 @@ def on_message(client, userdata, msg):
         flame_value = data["flameValue"]
 
         # Store the values in the MySQL database
-        insert_query = "INSERT INTO sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
         cursor.execute(insert_query, values)
         db.commit()
