@@ -66,8 +66,9 @@ def on_message(client, userdata, msg):
             insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
             values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
             cursor.execute(insert_query, values)
-            cursor.close()
+            
             db.commit()
+            cursor.close()
             db.close()
             print("Data stored in MySQL database")
         else:
