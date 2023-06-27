@@ -47,6 +47,15 @@ def on_message(client, userdata, msg):
         ppm = data["ppm"]
         flame_value = data["flameValue"]
 
+        print("Acceleration X:", acceleration_x)
+        print("Acceleration Y:", acceleration_y)
+        print("Acceleration Z:", acceleration_z)
+        print("Gyroscope X:", gyroscope_x)
+        print("Gyroscope Y:", gyroscope_y)
+        print("Gyroscope Z:", gyroscope_z)
+        print("PPM:", ppm)
+        print("Flame Value:", flame_value)
+
         # Store the values in the MySQL database
         insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
