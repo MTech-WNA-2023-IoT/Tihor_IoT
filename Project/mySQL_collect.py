@@ -60,9 +60,13 @@ def on_message(client, userdata, msg):
         insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
         cursor.execute(insert_query, values)
+        #Close the cursor
+        db.close()
+        #Commit the data to the database
         db.commit()
-
         print("Data stored in MySQL database")
+        #Close the connection to the database
+        db.close()
 
     except Exception as e:
         print("Error occurred while processing and storing the data:", str(e))
