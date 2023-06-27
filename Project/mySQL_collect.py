@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 import json
-import mysql.connector
+import pymysql
 
 # MQTT broker configuration
 mqttBroker = "34.100.247.89"
@@ -11,10 +11,10 @@ mqttTopic = "sensor/data"
 mysqlHost = "localhost"
 mysqlUser = "user"
 mysqlPassword = "pass123"
-mysqlDatabase = "sensorData"
+mysqlDatabase = "senorData"
 
 # Connect to the MySQL database
-db = mysql.connector.connect(
+db = pymysql.connect(
     host=mysqlHost,
     user=mysqlUser,
     password=mysqlPassword,
