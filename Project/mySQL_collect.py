@@ -68,8 +68,8 @@ def on_message(client, userdata, msg):
             cursor.execute(insert_query, values)
             
             db.commit()
-            cursor.close()
-            db.close()
+            # cursor.close()
+            # db.close()
             print("Data stored in MySQL database")
         else:
             print("One or more values are empty. Skipping database insertion.")
