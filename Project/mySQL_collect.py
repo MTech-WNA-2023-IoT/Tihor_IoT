@@ -61,7 +61,7 @@ def on_message(client, userdata, msg):
         print()
 
         # Check if the extracted values are not empty
-        if acceleration_x and acceleration_y and acceleration_z and gyroscope_x and gyroscope_y and gyroscope_z and ppm and flame_value:
+        if acceleration_x or acceleration_y or acceleration_z or gyroscope_x or gyroscope_y or gyroscope_z or ppm or flame_value:
             # Store the values in the MySQL database
             insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
             values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
