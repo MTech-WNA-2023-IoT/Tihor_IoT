@@ -61,24 +61,19 @@ def on_message(client, userdata, msg):
         print()
 
         # Check if the extracted values are not empty
-        if acceleration_x or acceleration_y or acceleration_z or gyroscope_x or gyroscope_y or gyroscope_z or ppm or flame_value:
+        if acceleration_x and acceleration_y and acceleration_z and gyroscope_x and gyroscope_y and gyroscope_z and ppm and flame_value:
             # Store the values in the MySQL database
             insert_query = "INSERT INTO building_sensor_data (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
             values = (acceleration_x, acceleration_y, acceleration_z, gyroscope_x, gyroscope_y, gyroscope_z, ppm, flame_value)
             cursor.execute(insert_query, values)
-            
             db.commit()
-            # cursor.close()
-            # db.close()
             print("Data stored in MySQL database")
         else:
             print("One or more values are empty. Skipping database insertion.")
 
     except Exception as e:
         print("Error occurred while processing and storing the data:", str(e))
-
-
-    
+        db.rollback()  # Roll back the transaction in case of an error
 
 # Create an MQTT client instance and assign the callback functions
 client = mqtt.Client()
@@ -89,3 +84,7 @@ client.on_message = on_message
 print("Connecting to MQTT broker...")
 client.connect(mqttBroker, mqttPort, 60)
 client.loop_forever()
+
+# Close the cursor and database connection
+cursor.close()
+db.close()
