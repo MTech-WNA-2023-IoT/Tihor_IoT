@@ -27,8 +27,8 @@ float gX, gY, gZ;
 //----------------------------------- Wifi / mqtt broker ---------------------//
 
 // Wi-Fi credentials
-const char* ssid = "BSNL FTTH";
-const char* password = "ihatemyself";
+const char* ssid = "******";
+const char* password = "******";
 
 // MQTT broker configuration
 const char* mqttBroker = "34.100.247.89";
